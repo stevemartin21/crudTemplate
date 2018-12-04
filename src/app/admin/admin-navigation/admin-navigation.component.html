@@ -1,0 +1,36 @@
+<mdb-navbar SideClass="navbar elegant-color  fixed-top navbar-expand-lg navbar-dark scrolling-navbar intro-fixed-nav" [containerInside]="false">
+  <mdb-navbar-brand>
+    <a class="logo navbar-brand">
+      <strong><h3 class='text-white'>Work Out Flow</h3></strong>
+    </a>
+  </mdb-navbar-brand>
+  <links>
+    <ul class="navbar-nav ml-auto" id='top'>
+      <li class="nav-item active waves-light" mdbWavesEffect>
+        <a class="nav-link btn btn-default" [routerLink]="['/']" >Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+
+      <li class="nav-item waves-light" mdbWavesEffect>
+        <a class="nav-link btn btn-default"[routerLink]="['/dashboard']" >Dashboard</a>
+      </li>
+      <li class="nav-item waves-light" mdbWavesEffect>
+        <a class="nav-link btn btn-default" [routerLink]="['/manageWorkOuts']" >Manage Exercises</a>
+      </li>
+
+
+      <li class="nav-item waves-light" mdbWavesEffect>
+        <a class="nav-link btn btn-default "[routerLink]="['/addWorkOut']" >Add Exercise</a>
+      </li>
+
+      <li class="nav-item waves-light" mdbWavesEffect>
+        <button class="nav-link btn btn-default " (click)='logOut()'>Log Out</button>
+      </li>
+
+
+
+    </ul>
+  </links>
+</mdb-navbar>
+

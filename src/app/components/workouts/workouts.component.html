@@ -1,0 +1,131 @@
+<app-navigation2></app-navigation2>
+
+<h1> Hello there</h1>
+
+<section class="view3 intro-2">
+
+<div class='container pt-5 mt-5 pb-5'>
+
+<ul *ngFor='let workout of workouts; let i = index'>
+
+  <li class='list-group floatIt'*ngIf=" i  >= firstVisibleIndex && i <= lastVisibleIndex" class='font-weight-bold'  >
+
+
+      <div>
+          <!--Card-->
+          <mdb-card cascade="true">
+
+            <!--Card image-->
+            <div class="view view-cascade gradient-card-header elegant-color">
+              <h2 class="card-header-title">{{workout.title}}</h2>
+              <p>{{workout.description}}</p>
+            </div>
+            <!--/Card image-->
+
+            <mdb-card-body cascade="true" class="text-center">
+              <!--Card content-->
+
+              <mdb-card-text>
+                <ul>
+                  <li class='list-group'>{{workout.workOutArea}}</li>
+                  <li class='list-group'>{{workout.accessory}}</li>
+                  <li class='list-group'>{{workout.duration}}</li>
+                </ul>
+              </mdb-card-text>
+
+              <!--Twitter-->
+              <a class="icons-sm tw-ic">
+                <i class="fa fa-twitter px-2"> </i>
+              </a>
+              <!--Linkedin-->
+              <a class="icons-sm li-ic">
+                <i class="fa fa-linkedin px-2"> </i>
+              </a>
+              <!--Facebook-->
+              <a class="icons-sm fb-ic">
+                <i class="fa fa-facebook px-2"> </i>
+              </a>
+              <!--Email-->
+              <a class="icons-sm email-ic">
+                <i class="fa fa-envelope px-2"> </i>
+              </a>
+
+            </mdb-card-body>
+            <!--/.Card content-->
+
+          </mdb-card>
+          <!--/.Card-->
+
+
+
+
+
+
+          </div>
+
+  </li>
+
+
+
+
+</ul>
+
+<hr class="my-0">
+
+<!--Bottom Table UI-->
+<div class="d-flex justify-content-center">
+
+  <!--Pagination -->
+  <nav class="my-4 pt-2">
+    <ul class="pagination pagination-circle pg-elegant-color mb-0">
+
+      <!--First-->
+      <li class="page-item clearfix d-none d-md-block" (click)="firstPage()" [ngClass]="{disabled: activePage == 1}">
+        <a class="page-link font-weight-bold">First</a>
+      </li>
+
+      <!--Arrow left-->
+      <li class="page-item" (click)="previousPage($event)" [ngClass]="{disabled: activePage == 1}">
+        <a class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only font-weight-bold ">Previous</span>
+        </a>
+      </li>
+
+      <!--Numbers-->
+      <li #pages *ngFor="let page of paginators | slice:firstVisiblePaginator:lastVisiblePaginator; let i = index" class="page-item" [ngClass]="{active: i + firstVisiblePaginator + 1 == activePage}">
+          <a class="page-link waves-lightfont-weight-bold " (click)="changePage($event)" mdbWavesEffect>{{page}}</a>
+      </li>
+
+
+
+      <!--Arrow right-->
+      <li class="page-item" (click)='nextPage($event)' [ngClass]="{disabled: activePage == numberOfPaginators}">
+        <a class="page-link" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only font-weight-bold">Next</span>
+        </a>
+      </li>
+
+      <!--First-->
+      <li class="page-item clearfix d-none d-md-block" (click)="lastPage()" [ngClass]="{disabled: activePage == numberOfPaginators}">
+        <a class="page-link font-weight-bold">Last</a>
+      </li>
+
+    </ul>
+  </nav>
+  <!--/Pagination -->
+
+</div>
+<!--Bottom Table UI-->
+
+
+
+
+
+</div>
+
+</section>
+
+
+<app-footer></app-footer>
